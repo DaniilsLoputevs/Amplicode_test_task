@@ -10,6 +10,15 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.daniilsloputevs.amplicodetesttask.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <fileType
+                name="ATT File"
+                implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTFileType"
+                fieldName="INSTANCE"
+                language="ATT"
+                extensions="att"/>
+        <lang.parserDefinition
+                language="ATT"
+                implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTParserDefinition"/>
     </extensions>
 
     <applicationListeners>

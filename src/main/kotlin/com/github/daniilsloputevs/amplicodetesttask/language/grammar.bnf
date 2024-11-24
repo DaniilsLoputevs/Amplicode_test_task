@@ -1,0 +1,53 @@
+{
+  parserClass="com.github.daniilsloputevs.amplicodetesttask.language.parser.ATTLanguageParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+  psiClassPrefix="ATT"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.daniilsloputevs.amplicodetesttask.language.psi"
+  psiImplPackage="com.github.daniilsloputevs.amplicodetesttask.language.psi.impl"
+
+  elementTypeHolderClass="com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTTypes"
+  elementTypeClass="com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTElementType"
+  tokenTypeClass="com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTTokenType"
+}
+
+root ::= statement_list
+
+statement_list ::= statement*
+
+statement ::= variable_declaration
+            | variable_declaration_and_init
+            | assignment
+            | while_loop
+            | do_while_loop
+            | if_statement
+            | block
+            | COMMENT
+
+variable_declaration ::= "var" IDENTIFIER ";"
+variable_declaration_and_init ::= "var" assignment
+assignment ::= IDENTIFIER "=" expression ";"
+
+do_while_loop ::= "do" block "while" "(" expression ")"
+while_loop ::= "while" "(" expression ")" block
+if_statement ::= "if" "(" expression ")" block ("else" block)?
+
+block ::= "{" statement_list "}"
+
+expression ::= comparison (LOGICAL_OPERATOR comparison)*
+comparison ::= term (COMPARISON_OPERATOR term)*
+term ::= factor (ADDITION_OPERATOR factor)*
+factor ::= primary (MULTIPLICATION_OPERATOR primary)*
+primary ::= NUMBER
+          | IDENTIFIER
+          | "(" expression ")"
+
+
+COMMENT ::= "//" TOKEN["[^\r\n]*"]
+IDENTIFIER ::= TOKEN["[a-zA-Z_][a-zA-Z0-9_]*"]
+NUMBER ::= TOKEN["[0-9]+"]
+LOGICAL_OPERATOR ::= "and" | "or" | "&&" | "||"
+COMPARISON_OPERATOR ::= "==" | "!=" | "<" | ">" | "<=" | ">="
+ADDITION_OPERATOR ::= "+" | "-"
+MULTIPLICATION_OPERATOR ::= "*" | "/" | "%"
