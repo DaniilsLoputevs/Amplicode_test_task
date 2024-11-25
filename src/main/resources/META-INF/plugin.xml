@@ -19,6 +19,9 @@
         <lang.parserDefinition
                 language="ATT"
                 implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="ATT"
+                implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTSyntaxHighlighterFactory"/>
     </extensions>
 
     <applicationListeners>
