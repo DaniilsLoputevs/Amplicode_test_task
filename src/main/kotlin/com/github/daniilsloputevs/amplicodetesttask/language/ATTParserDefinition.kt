@@ -21,15 +21,12 @@ class ATTParserDefinition : ParserDefinition {
 
     override fun getFileNodeType(): IFileElementType = FILE
 
-    override fun getCommentTokens(): TokenSet = ATTTokenSets.COMMENT
+    override fun getCommentTokens(): TokenSet = ATTTokenSets.COMMENT_STUB
 
-    //    override fun getStringLiteralElements(): TokenSet = ATTTokenSets.NUMBER
     override fun getStringLiteralElements(): TokenSet = TokenSet.EMPTY
 
-    override fun createElement(node: ASTNode?): PsiElement {
-
+    override fun createElement(node: ASTNode): PsiElement {
         println("node:$node")
-
         return ATTTypes.Factory.createElement(node)
     }
 

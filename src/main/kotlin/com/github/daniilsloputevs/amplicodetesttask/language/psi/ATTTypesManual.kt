@@ -7,12 +7,12 @@ import com.intellij.psi.tree.IElementType
  * Без @[JvmField] генератор не видит поля, считает их приватными
  */
 object ATTTypesManual {
-    @JvmField val OPEN_PARENTHESIS: IElementType = ATTElementType("OPEN_PARENTHESIS")
-    @JvmField val CLOSE_PARENTHESIS: IElementType = ATTElementType("CLOSE_PARENTHESIS")
-    @JvmField val BLOCK_OPEN: IElementType = ATTElementType("BLOCK_OPEN")
-    @JvmField val BLOCK_CLOSE: IElementType = ATTElementType("BLOCK_CLOSE")
-    @JvmField val ELSE_STATEMENT: IElementType = ATTElementType("ELSE_STATEMENT")
-    @JvmField val SEMICOLON: IElementType = ATTElementType("SEMICOLON")
-    @JvmField val ASSIGN: IElementType = ATTElementType("ASSIGN")
-    @JvmField val LOGICAL_OPERATOR_KEYWORD: IElementType = ATTElementType("LOGICAL_OPERATOR_KEYWORD")
+    @JvmField val OPEN_PARENTHESIS: IElementType = ATTTokenType("OPEN_PARENTHESIS")
+    @JvmField val CLOSE_PARENTHESIS: IElementType = ATTTokenType("CLOSE_PARENTHESIS")
+    @JvmField val BLOCK_OPEN: IElementType = ATTTokenType("BLOCK_OPEN")
+    @JvmField val BLOCK_CLOSE: IElementType = ATTTokenType("BLOCK_CLOSE")
+    @JvmField val ELSE_STATEMENT: IElementType = ATTTokenType("ELSE_STATEMENT")
+    @JvmField val SEMICOLON: IElementType = ATTTokenType("SEMICOLON")
+    @JvmField val ASSIGN: IElementType = ATTTokenType("ASSIGN")
+    @JvmField val LOGICAL_OPERATOR_KEYWORD: IElementType = ATTTokenType("LOGICAL_OPERATOR_KEYWORD")
 }
