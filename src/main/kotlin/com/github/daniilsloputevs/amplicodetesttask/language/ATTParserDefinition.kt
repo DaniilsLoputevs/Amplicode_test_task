@@ -26,7 +26,7 @@ class ATTParserDefinition : ParserDefinition {
     override fun getStringLiteralElements(): TokenSet = TokenSet.EMPTY
 
     override fun createElement(node: ASTNode): PsiElement {
-        println("node:$node")
+//        println("node:$node")
         return ATTTypes.Factory.createElement(node)
     }
 

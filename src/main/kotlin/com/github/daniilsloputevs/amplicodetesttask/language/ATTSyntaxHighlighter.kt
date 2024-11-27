@@ -17,7 +17,7 @@ class ATTSyntaxHighlighter : SyntaxHighlighterBase() {
     override fun getHighlightingLexer(): Lexer = ATTLexerAdapter()
 
     override fun getTokenHighlights(tokenType: IElementType): Array<out TextAttributesKey> {
-        println("HL token type: $tokenType")
+//        println("HL token type: $tokenType")
         return when (tokenType) {
             in ATTTokenSets.KEYWORDS -> HIGHLIGHT_KEYWORD
             in ATTTokenSets.OPERATORS -> HIGHLIGHT_OPERATORS

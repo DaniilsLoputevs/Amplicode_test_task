@@ -25,6 +25,10 @@
         <completion.contributor
                 language="ATT"
                 implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTCompletionContributor"/>
+        <gotoDeclarationHandler implementation="com.github.daniilsloputevs.amplicodetesttask.language.ATTGotoDeclarationHandler"/>
+        <psi.referenceContributor
+                language="ATT"
+                implementation="com.github.daniilsloputevs.amplicodetesttask.language.ATTReferenceContributor"/>
     </extensions>
 
     <applicationListeners>

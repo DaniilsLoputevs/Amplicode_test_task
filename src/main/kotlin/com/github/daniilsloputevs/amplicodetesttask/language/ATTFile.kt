@@ -6,11 +6,8 @@ import com.intellij.psi.FileViewProvider
 
 class ATTFile(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, ATTLanguage.INSTANCE) {
 
-    override fun getFileType(): FileType {
-        return ATTFileType
-    }
+    override fun getFileType(): FileType = ATTFileType
 
-    override fun toString(): String {
-        return "ATT File"
-    }
+    override fun toString(): String = "ATT File"
+
 }
