@@ -22,6 +22,9 @@
         <lang.syntaxHighlighterFactory
                 language="ATT"
                 implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTSyntaxHighlighterFactory"/>
+        <completion.contributor
+                language="ATT"
+                implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTCompletionContributor"/>
     </extensions>
 
     <applicationListeners>
