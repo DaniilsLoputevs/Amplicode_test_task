@@ -1,0 +1,13 @@
+var a;
+var b;
+
+a = 189;
+b = 260;
+
+while (a != 0 and b != 0) {
+    if(a > b) {
+        a = a % b;
+    } else {
+        b = b % a;
+    }
+}
