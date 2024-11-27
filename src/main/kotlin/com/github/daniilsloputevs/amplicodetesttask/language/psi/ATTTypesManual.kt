@@ -15,4 +15,5 @@ object ATTTypesManual {
     @JvmField val SEMICOLON: IElementType = ATTTokenType("SEMICOLON")
     @JvmField val ASSIGN: IElementType = ATTTokenType("ASSIGN")
     @JvmField val LOGICAL_OPERATOR_KEYWORD: IElementType = ATTTokenType("LOGICAL_OPERATOR_KEYWORD")
+    @JvmField val LOGICAL_OPERATOR_SIGN: IElementType = ATTTokenType("LOGICAL_OPERATOR_SIGN")
 }

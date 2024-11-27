@@ -17,7 +17,6 @@ class ATTSyntaxHighlighter : SyntaxHighlighterBase() {
     override fun getHighlightingLexer(): Lexer = ATTLexerAdapter()
 
     override fun getTokenHighlights(tokenType: IElementType): Array<out TextAttributesKey> {
-//        println("HL token type: $tokenType")
         return when (tokenType) {
             in ATTTokenSets.KEYWORDS -> HIGHLIGHT_KEYWORD
             in ATTTokenSets.OPERATORS -> HIGHLIGHT_OPERATORS
@@ -36,4 +35,4 @@ val HIGHLIGHT_NUMBER = arrayOf(DefaultLanguageHighlighterColors.NUMBER)
 val HIGHLIGHT_SEMICOLON = arrayOf(DefaultLanguageHighlighterColors.SEMICOLON)
 val HIGHLIGHT_IDENTIFIER = arrayOf(DefaultLanguageHighlighterColors.IDENTIFIER)
 val HIGHLIGHT_BAD_CHARACTER = arrayOf(createTextAttributesKey("ATT_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER))
-val HIGHLIGHT_EMPTY = arrayOf<TextAttributesKey>()
+val HIGHLIGHT_EMPTY = emptyArray<TextAttributesKey>()

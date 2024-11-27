@@ -15,42 +15,15 @@ class ATTGotoDeclarationHandler : GotoDeclarationHandler {
         sourceElement: PsiElement?,
         offset: Int,
         editor: Editor
-    ): Array<PsiElement>? {
-        println("ATTGotoDeclarationHandler.getGotoDeclarationTargets(sourceElement=$sourceElement, offset=$offset)")
-        if (sourceElement == null) return null
-        if (sourceElement.elementType != ATTTypes.IDENTIFIER_LEAF) return null
+    ): Array<PsiElement> {
+        if (sourceElement == null) return PsiElement.EMPTY_ARRAY
+        if (sourceElement.elementType != ATTTypes.IDENTIFIER_LEAF) return PsiElement.EMPTY_ARRAY
         return ATTPsiImplUtil
             .findVariableDeclaration(sourceElement.text, sourceElement.containingFile)
             ?.let { arrayOf(it.identifier) }
-            ?: emptyArray()
-
-
-//        return emptyArray()
-
-
-//        println("ATTGotoDeclarationHandler.getGotoDeclarationTargets=> type=${sourceElement.elementType}")
-//        println("ATTGotoDeclarationHandler.getGotoDeclarationTargets=> text=${sourceElement.text}")
-//        println("ATTGotoDeclarationHandler.getGotoDeclarationTargets")
-//        if (sourceElement.elementType == ATTTypes.IDENTIFIER_LEAF) {
-////            val rsl = mutableListOf<ResolveResult>()
-//            return ATTPsiImplUtil
-//                .findAllVariablesInFile(sourceElement.containingFile as ATTFile)
-//                .filter { it.identifier.text == sourceElement.text }
-//                .map { it.identifier }
-//                .toTypedArray()
-////                .forEach {rsl + PsiElementResolveResult(it)  }
-////                .map { PsiElementResolveResult(it)  }
-////                .map { it. }
-////                .map { it..resolve() }
-////            return rsl.toTypedArray()
-//        }
-////        if (sourceElement is ATTVariableDeclaration) {
-////            println("ATTGotoDeclarationHandler.getGotoDeclarationTargets => is var")
-////            return sourceElement.references.mapNotNull { it.resolve() }.toTypedArray()
-////        }
-//        return null
+            ?: PsiElement.EMPTY_ARRAY
     }
 
-    override fun getActionText(context: DataContext) = "Go to declaration"
+    override fun getActionText(context: DataContext) = "GO TO DECLARATION"
 
 }

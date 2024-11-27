@@ -1,9 +1,9 @@
 package com.github.daniilsloputevs.amplicodetesttask.services
 
+import com.github.daniilsloputevs.amplicodetesttask.MyBundle
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.daniilsloputevs.amplicodetesttask.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

@@ -6,6 +6,6 @@ import com.intellij.psi.tree.IElementType
 /**
  * An IElementType subclass to be used for PSI tree leaves (tokens).
  */
-open class ATTTokenType(debugName : String): IElementType(debugName, ATTLanguage.INSTANCE) {
+open class ATTTokenType(debugName: String) : IElementType(debugName, ATTLanguage.INSTANCE) {
     override fun toString(): String = "ATT Leaf: " + super.toString()
 }

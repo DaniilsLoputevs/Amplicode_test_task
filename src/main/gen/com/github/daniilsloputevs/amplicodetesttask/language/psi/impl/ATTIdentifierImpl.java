@@ -8,10 +8,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTTypes.*;
-import com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTNamedElementImpl;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.daniilsloputevs.amplicodetesttask.language.psi.*;
 
-public class ATTIdentifierImpl extends ATTNamedElementImpl implements ATTIdentifier {
+public class ATTIdentifierImpl extends ASTWrapperPsiElement implements ATTIdentifier {
 
   public ATTIdentifierImpl(@NotNull ASTNode node) {
     super(node);

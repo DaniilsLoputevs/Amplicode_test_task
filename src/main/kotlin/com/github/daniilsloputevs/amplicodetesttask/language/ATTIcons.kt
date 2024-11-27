@@ -5,5 +5,5 @@ import com.intellij.icons.AllIcons
 
 object ATTIcons {
     val FILE = AllIcons.FileTypes.Custom
-//    val FILE = getIcon("/icons/jar-gray.png", ATTIcons::class.java)
+    val VAR = AllIcons.Nodes.Variable
 }

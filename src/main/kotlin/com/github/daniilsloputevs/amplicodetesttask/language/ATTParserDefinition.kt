@@ -25,13 +25,10 @@ class ATTParserDefinition : ParserDefinition {
 
     override fun getStringLiteralElements(): TokenSet = TokenSet.EMPTY
 
-    override fun createElement(node: ASTNode): PsiElement {
-//        println("node:$node")
-        return ATTTypes.Factory.createElement(node)
-    }
+    override fun createElement(node: ASTNode): PsiElement = ATTTypes.Factory.createElement(node)
 
     override fun createFile(viewProvider: FileViewProvider): PsiFile = ATTFile(viewProvider)
 
 }
 
-val FILE: IFileElementType = IFileElementType(ATTLanguage.INSTANCE)
+private val FILE: IFileElementType = IFileElementType(ATTLanguage.INSTANCE)

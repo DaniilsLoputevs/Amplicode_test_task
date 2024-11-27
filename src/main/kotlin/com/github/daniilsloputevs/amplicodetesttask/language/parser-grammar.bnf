@@ -42,10 +42,6 @@ primary ::= NUMBER
           | "(" expression ")"
 
 IDENTIFIER ::= IDENTIFIER_LEAF["[a-zA-Z_][a-zA-Z0-9_]*"]
-{
-    mixin="com.github.daniilsloputevs.amplicodetesttask.language.psi.ATTNamedElementImpl"
-    methods=[setName getName getgetNameIdentifier]
-}
 NUMBER ::= NUMBER_LEAF["[0-9]+"]
 LOGICAL_OPERATOR ::= "and" | "or" | "&&" | "||"
 COMPARISON_OPERATOR ::= "==" | "!=" | "<" | ">" | "<=" | ">="

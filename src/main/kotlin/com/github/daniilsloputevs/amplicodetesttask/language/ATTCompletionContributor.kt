@@ -17,19 +17,10 @@ class ATTCompletionContributor : CompletionContributor() {
             PlatformPatterns.psiElement(),
             VariableCompletionProvider()
         )
-
         extend(
-            CompletionType.BASIC, PlatformPatterns.psiElement(),
-            object : CompletionProvider<CompletionParameters>() {
-                public override fun addCompletions(
-                    parameters: CompletionParameters,
-                    context: ProcessingContext,
-                    resultSet: CompletionResultSet
-                ) {
-                    KEYWORDS_SUGGESTIONS.forEach { keyword ->
-                        resultSet.addElement(LookupElementBuilder.create(keyword)) }
-                }
-            }
+            CompletionType.BASIC,
+            PlatformPatterns.psiElement(),
+            KeywordCompletionProvider()
         )
     }
 
@@ -41,11 +32,11 @@ class VariableCompletionProvider : CompletionProvider<CompletionParameters>() {
         context: ProcessingContext,
         result: CompletionResultSet
     ) {
-        collectVariablesNames(parameters.originalFile, parameters.position)
-            .forEach { result.addElement(LookupElementBuilder.create(it)) }
+        collectVariablesNamesBeforeElement(parameters.originalFile, parameters.position)
+            .forEach { result.addElement(LookupElementBuilder.create(it).withIcon(ATTIcons.VAR)) }
     }
 
-    private fun collectVariablesNames(scope: PsiFile, position: PsiElement): List<String> {
+    private fun collectVariablesNamesBeforeElement(scope: PsiFile, position: PsiElement): List<String> {
         val variablesNames = mutableListOf<String>()
         scope.accept(object : PsiRecursiveElementVisitor() {
             override fun visitElement(element: PsiElement) {
@@ -57,7 +48,19 @@ class VariableCompletionProvider : CompletionProvider<CompletionParameters>() {
         })
         return variablesNames
     }
-
 }
+
+class KeywordCompletionProvider : CompletionProvider<CompletionParameters>() {
+    public override fun addCompletions(
+        parameters: CompletionParameters,
+        context: ProcessingContext,
+        resultSet: CompletionResultSet
+    ) {
+        KEYWORDS_SUGGESTIONS.forEach { keyword ->
+            resultSet.addElement(LookupElementBuilder.create(keyword))
+        }
+    }
+}
+
 
 private val KEYWORDS_SUGGESTIONS = listOf("if", "while", "do")

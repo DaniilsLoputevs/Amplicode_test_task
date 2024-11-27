@@ -26,10 +26,7 @@
                 language="ATT"
                 implementationClass="com.github.daniilsloputevs.amplicodetesttask.language.ATTCompletionContributor"/>
         <gotoDeclarationHandler implementation="com.github.daniilsloputevs.amplicodetesttask.language.ATTGotoDeclarationHandler"/>
-        <psi.referenceContributor
-                language="ATT"
-                implementation="com.github.daniilsloputevs.amplicodetesttask.language.ATTReferenceContributor"/>
-    </extensions>
+         </extensions>
 
     <applicationListeners>
         <listener class="com.github.daniilsloputevs.amplicodetesttask.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
