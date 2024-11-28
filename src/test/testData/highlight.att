@@ -1,0 +1,5 @@
+do {
+    if (a == 7 or b == 7) {
+        var p = 7;
+    }
+} while (a == 5)

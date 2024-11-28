@@ -1,0 +1,4 @@
+var varName = 10;
+var anotherVar = 20;
+
+<caret>
