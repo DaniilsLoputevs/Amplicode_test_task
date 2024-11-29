@@ -18,21 +18,24 @@ class ATTSyntaxHighlighter : SyntaxHighlighterBase() {
 
     override fun getTokenHighlights(tokenType: IElementType): Array<out TextAttributesKey> {
         return when (tokenType) {
-            in ATTTokenSets.KEYWORDS -> HIGHLIGHT_KEYWORD
-            in ATTTokenSets.OPERATORS -> HIGHLIGHT_OPERATORS
-            NUMBER, NUMBER_LEAF -> HIGHLIGHT_NUMBER
-            TokenType.BAD_CHARACTER -> HIGHLIGHT_BAD_CHARACTER
-            ATTTypesManual.SEMICOLON -> HIGHLIGHT_SEMICOLON
-            IDENTIFIER, IDENTIFIER_LEAF -> HIGHLIGHT_IDENTIFIER
-            else -> HIGHLIGHT_EMPTY
+            in ATTTokenSets.KEYWORDS -> Highlight.KEYWORD
+            in ATTTokenSets.OPERATORS -> Highlight.OPERATORS
+            NUMBER, NUMBER_LEAF -> Highlight.NUMBER
+            TokenType.BAD_CHARACTER -> Highlight.BAD_CHARACTER
+            ATTTypesManual.SEMICOLON -> Highlight.SEMICOLON
+            IDENTIFIER, IDENTIFIER_LEAF -> Highlight.IDENTIFIER
+            else -> Highlight.EMPTY
         }
     }
-}
 
-val HIGHLIGHT_KEYWORD = arrayOf(DefaultLanguageHighlighterColors.KEYWORD)
-val HIGHLIGHT_OPERATORS = arrayOf(DefaultLanguageHighlighterColors.OPERATION_SIGN)
-val HIGHLIGHT_NUMBER = arrayOf(DefaultLanguageHighlighterColors.NUMBER)
-val HIGHLIGHT_SEMICOLON = arrayOf(DefaultLanguageHighlighterColors.SEMICOLON)
-val HIGHLIGHT_IDENTIFIER = arrayOf(DefaultLanguageHighlighterColors.IDENTIFIER)
-val HIGHLIGHT_BAD_CHARACTER = arrayOf(createTextAttributesKey("ATT_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER))
-val HIGHLIGHT_EMPTY = emptyArray<TextAttributesKey>()
+    object Highlight {
+        val KEYWORD = arrayOf(DefaultLanguageHighlighterColors.KEYWORD)
+        val OPERATORS = arrayOf(DefaultLanguageHighlighterColors.OPERATION_SIGN)
+        val NUMBER = arrayOf(DefaultLanguageHighlighterColors.NUMBER)
+        val SEMICOLON = arrayOf(DefaultLanguageHighlighterColors.SEMICOLON)
+        val IDENTIFIER = arrayOf(DefaultLanguageHighlighterColors.IDENTIFIER)
+        val BAD_CHARACTER = arrayOf(createTextAttributesKey("ATT_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER))
+        val EMPTY = emptyArray<TextAttributesKey>()
+    }
+
+}

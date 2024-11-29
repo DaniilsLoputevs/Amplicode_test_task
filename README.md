@@ -52,8 +52,9 @@ while (a != 0 and b != 0) {
 Доводить до идеала не нужно, достаточно продемонстрировать понимание работы технологии и быть готовым ответить на
 вопросы по коду.
 
+---
 
-## Необходимая часть в README.md, Gradle ругается и не даёт запустить проект если этого блока нет в README.md
+## Необходимая xml вставка в README.md, Gradle ругается и не даёт запустить проект если этого блока нет в README.md
 <!-- Plugin description -->
 Amplicode test task - make IDEA language plugin
 <!-- Plugin description end -->

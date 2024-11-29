@@ -10,7 +10,6 @@ import com.intellij.psi.util.elementType
 
 class ATTGotoDeclarationHandler : GotoDeclarationHandler {
 
-
     override fun getGotoDeclarationTargets(
         sourceElement: PsiElement?,
         offset: Int,

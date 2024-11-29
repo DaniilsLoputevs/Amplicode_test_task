@@ -3,7 +3,8 @@ package com.github.daniilsloputevs.amplicodetesttask.language.psi
 import com.intellij.psi.tree.IElementType
 
 /**
- * ToolKit не генерирует ElementType для констант, их приходиться прописывать ручками
+ * ToolKit не генерирует ElementType для констант(Терминальных элементов),
+ * их приходиться прописывать ручками.
  * Без @[JvmField] генератор не видит поля, считает их приватными
  */
 object ATTTypesManual {

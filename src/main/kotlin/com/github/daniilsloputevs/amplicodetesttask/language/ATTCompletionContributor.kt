@@ -27,6 +27,7 @@ class ATTCompletionContributor : CompletionContributor() {
 }
 
 class VariableCompletionProvider : CompletionProvider<CompletionParameters>() {
+
     override fun addCompletions(
         parameters: CompletionParameters,
         context: ProcessingContext,
@@ -36,11 +37,11 @@ class VariableCompletionProvider : CompletionProvider<CompletionParameters>() {
             .forEach { result.addElement(LookupElementBuilder.create(it).withIcon(ATTIcons.VAR)) }
     }
 
-    private fun collectVariablesNamesBeforeElement(scope: PsiFile, position: PsiElement): List<String> {
+    private fun collectVariablesNamesBeforeElement(scope: PsiFile, searchPosition: PsiElement): List<String> {
         val variablesNames = mutableListOf<String>()
         scope.accept(object : PsiRecursiveElementVisitor() {
             override fun visitElement(element: PsiElement) {
-                if (element is ATTVariableDeclaration && element.textOffset < position.textOffset) {
+                if (element is ATTVariableDeclaration && element.textOffset < searchPosition.textOffset) {
                     variablesNames.add(element.identifier.text)
                 }
                 super.visitElement(element)
@@ -48,9 +49,11 @@ class VariableCompletionProvider : CompletionProvider<CompletionParameters>() {
         })
         return variablesNames
     }
+
 }
 
 class KeywordCompletionProvider : CompletionProvider<CompletionParameters>() {
+
     public override fun addCompletions(
         parameters: CompletionParameters,
         context: ProcessingContext,
@@ -60,7 +63,11 @@ class KeywordCompletionProvider : CompletionProvider<CompletionParameters>() {
             resultSet.addElement(LookupElementBuilder.create(keyword))
         }
     }
+
+    companion object {
+        private val KEYWORDS_SUGGESTIONS = listOf("if", "while", "do")
+    }
+
 }
 
 
-private val KEYWORDS_SUGGESTIONS = listOf("if", "while", "do")

@@ -6,20 +6,20 @@ b = 7;
 
 var user;
 
-while (a != 0 and b != 0) {
-    if (a > b) {
+while (a != 0 and b == 0) {
+    if (a >= b) {
         a = a % b;
     } else {
         b = b % a;
     }
 }
-user = 5;
+user = a + 8;
 
 do {
-    if (a == 7 or b == 7) {
+    if (a < 7 or b > 7) {
         var p = 7;
     }
-} while (a == 5)
+} while (a <= 5 || user != b)
 
 var c = 1 + 2;
 
